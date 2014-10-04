@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: timesheet
-  username: sevnangel_admin
-  password: '304Donna!'
+  url: <%= ENV['postgres://sptfuhaysdokqg:G15E9YLNxKmbe8GnM4E4y2rgD-@ec2-23-21-170-57.compute-1.amazonaws.com:5432/d34ejrjs431sj5'] %>
