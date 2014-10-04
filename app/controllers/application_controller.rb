@@ -9,14 +9,14 @@ class ApplicationController < ActionController::Base
   end
 
   def format_date(date)
-    #"#{DateTime.parse(date).strftime('%D')}" 
+    "#{DateTime.parse(date).strftime('%D')}" 
   end
 
   def format_time(time)
     if time.nil?
       "still clocked in"
     else
-      time.strftime("%l:%M %P")
+     # time.strftime("%l:%M %P")
     end
   end
 
