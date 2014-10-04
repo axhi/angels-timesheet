@@ -10,13 +10,13 @@ class ApplicationController < ActionController::Base
 
   def format_date(date)
     date.strftime("%D")
-    #DateTime.parse(date).strftime('%D')
   end
 
   def format_time(time)
     if time.nil?
       "still clocked in"
     else
+     time
      # time.strftime("%l:%M %P")
     end
   end
