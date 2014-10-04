@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     if time.nil?
       "still clocked in"
     else
-      "#{time.strftime('%l:%M %p')}"
+      "#{Time.parse(time).strftime('%l:%M %p')}"
     end
   end
 
