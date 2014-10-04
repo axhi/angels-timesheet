@@ -1,0 +1,126 @@
+/*
+ *= require_tree .
+ *= require jquery.mobile-1.4.4
+ *= require_self
+ */
+*{
+  text-shadow: none !important;
+}
+.in {
+  font-size: 1.5em;
+  background: gold !important;
+  text-shadow: none !important;
+  border-radius: 10px;
+  height: 300px;
+  margin-top:0;
+}
+.entry-btn {
+  width: 100px !important;
+}
+
+.time {
+  text-align:center;
+  font-size:3em;
+  margin-top: 0 !important;
+}
+.sign-in {
+  width: 50%;
+  margin: 0 auto;
+}
+.user {
+  width: 250px;
+  border: 1px solid;
+  border-color: black;
+  border-radius: 5px;
+  padding: 6px;
+  position: relative;
+  bottom: -4px;
+  left: 17px;
+  background: honeydew;
+}
+.user h2 { margin: 0 0 0 10px}
+.user h3 { margin: 0 0 0 10px}
+.out {
+  font-size: 1.5em;
+  background: crimson !important;
+  text-shadow: none !important;
+  border-radius: 10px;
+  color:white !important;
+  height: 300px;
+  margin-top:0;
+}
+.ui-header {
+  font-size: 2em;
+}
+.entry {
+  width: 300px !important;
+}
+.date-entry {
+  text-shadow: none !important;
+  padding:5px;
+}
+
+.date-entry:nth-child(even) {
+  background: lightgrey;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+.results-tr:nth-child(odd) {
+  background: aliceblue;
+}
+
+.ui-page {
+  background: white !important;
+}
+.ui-corner-all {
+  font-size: 16px !important;
+}
+.ui-btn-left {
+  font-size: 12px !important;
+}
+.submit {
+  font-size: 2em;
+  background: crimson !important;
+  border: none;
+  border-radius: 5px;
+  color: white !important;
+}
+
+#code {
+  font-size: 3em;
+  text-align: center;
+  outline-color: white !important;
+  border: white !important;
+}
+.main-header {
+  background: white !important;
+  height: 80px !important;
+}
+.main-header h1 {
+  margin: 0 !important;
+}
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+  #code {
+    font-size: 2em !important;
+    width: 100%;
+  }
+  .sign-in {
+    width: 100%;
+  }
+  .ui-header {
+    font-size: 1.2em;
+  }
+  .main-header {
+    height: 50px !important;
+  }
+  .time {
+    font-size: 2em;
+  }
+  .user {
+    display: none
+  }
+}
+

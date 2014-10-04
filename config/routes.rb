@@ -1,0 +1,18 @@
+Rails.application.routes.draw do
+  root 'home#index'
+  get 'users/:id' => 'users#show'
+  post 'users/:id' => 'users#clock_status'
+  post 'users' => 'users#create'
+  post 'users/clock_in/:id' => 'users#clock_in'
+  post 'users/clock_out/:id' => 'users#clock_out'
+  delete 'users/:id' => 'users#delete'
+  patch 'users/:id/edit' => 'users#edit'
+  get 'admin' => 'admin#index'
+  post 'admin/panel' => 'admin#sign_in'
+  get 'admin/panel' => 'admin#panel'
+  post 'admin/report' => 'admin#report'
+  get 'time/:id' => 'time_entries#show'
+  delete 'time/:id' => 'time_entries#delete'
+  patch 'time/:id' => 'time_entries#edit'
+  post 'time' => 'time_entries#create'
+end

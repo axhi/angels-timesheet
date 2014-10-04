@@ -1,0 +1,44 @@
+<div data-role="header">
+  <h1>Admin</h1>
+  <%= link_to 'Back', admin_panel_path %>
+</div>
+
+<% if @data %>
+  <div class="ui-content">
+    <div class="employee-list">
+      <table data-role="table" id="table-column-toggle" class="ui-responsive table-stroke">
+        <thead>
+          <tr>
+            <th>Employee</th>
+            <th data-priority="3">Days worked in this time period</th>
+            <th>Hours</th>
+          </tr>
+        </thead>
+        <tbody class="t-body">
+          <% @data.each do |user| %>
+          <tr class="results-tr">
+            <td><%= user.first_name %> <%= user.last_name %>
+            </td>
+            <td>
+            <% user.time_entries.each do |shift| %>
+              <div id=<%=shift.id%> class="date-entry">
+                <strong><%= format_date(shift.date) %></strong><br>
+                <span> Punched In: <%= format_time(shift.clock_in) %></span> <span> Punched Out: <%= format_time(shift.clock_out) %></span> <br>
+              <button class='entry-btn' id=<%=shift.id%>>edit</button>
+                <span class='hours-in-shift'><%= pluralize(get_hours([shift]), 'hour') %> this shift</span>
+              </div>
+            <% end %>
+            </td>
+            <td>
+              <span class="hours"><strong><%= pluralize(get_hours(user.time_entries), 'hour') %></strong></span>
+              <br><span>Tips: <strong>$<%= get_tips(user.wage) %></strong></span>
+            </td>
+          </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    <div class='entry-edit' data-role="popup" id="time-edit">
+    </div>
+    </div>
+  </div>
+<% end %>

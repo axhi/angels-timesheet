@@ -1,0 +1,13 @@
+<div data-role="header">
+  <h1>Admin</h1>
+</div>
+<div class="ui-content">
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+  <form action="/admin/panel" method="post">
+    <input type="text" name="user" placeholder="enter pin">
+    <input type="password" name="password" placeholder="password">
+    <button class="ui-btn">Sign In</button>
+  </form>
+</div>

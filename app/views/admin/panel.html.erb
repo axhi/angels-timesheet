@@ -1,0 +1,65 @@
+<div data-role="header">
+  <h1>Admin</h1>
+  <div data-role="navbar">
+    <ul>
+      <li><a href="#addUser" data-rel="popup" data-position-to="window" data-transition="pop">Add Employee</a></li>
+      <li><a href="#run-report" data-rel='popup' data-position-to='window' data-transition='pop'>Run Report</a></li>
+    </ul>
+  </div>
+</div>
+<div class="ui-content">
+<% if user_signed_in? %>
+<div class="employee-list">
+  <table data-role="table" id="table-column-toggle" class="ui-responsive table-stroke">
+    <thead>
+      <tr>
+        <th data-priority="2">Code</th>
+        <th>Employee</th>
+        <th data-priority="5">Edit</th>
+      </tr>
+    </thead>
+    <tbody class="t-body">
+    <% @users.each do |user| %>
+      <tr>
+      <td><%= user.code %></td>
+      <td><%= user.first_name %> <%= user.last_name %></td>
+      <td>
+        <button class='edit-btn' id=<%= user.id %>>edit</button>
+        <button class='add-btn' id=<%=user.id %> >add entry</button>
+      </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <div data-role="popup" id="addUser" data-theme="a" class="ui-corner-all">
+    <form class="add-user" id="add-user">
+      <div class='user-form-area' style="padding:10px 20px;">
+        <h3>Fill in all fields</h3>
+        <input type="text" name="code" id="code" placeholder="4-digit pin" data-theme="a">
+        <input type="text" name="first_name" id="fname" placeholder="first name" data-theme="a">
+        <input type="text" name="last_name" id="lname" placeholder="last name" data-theme="a">
+        <input type="text" name="position" id="position" placeholder="status digit" data-theme="a">
+        <input type="text" name="wage" id="wage" placeholder="wage rate" data-theme="a">
+        <button type="submit" class='add-user-btn'>Create Role</button>
+      </div>
+    </form>
+  </div>
+  <div data-role="popup" id="run-report" data-theme="a" class="ui-corner-all">
+    <form action="/admin/report" method="POST" id="run-report">
+      <div style="padding:10px 20px;">
+        <h3>Date Range</h3>
+        <label>From:</label>
+        <input type="date" name="from" data-role="date" id="from" data-inline="true">
+        <label>To:</label>
+        <input type="date" name="to" data-role="date" id="to" data-inline="true">
+        <button type="submit">Generate</button>
+      </div>
+    </form>
+  </div>
+  <div data-role="popup" id="edit" data-theme="a" class="ui-corner-all edit-form"></div>
+  <div class='entry' data-role="popup" id="time-add"></div>
+</div>
+<% else %>
+  Please login
+<% end %>
+</div>

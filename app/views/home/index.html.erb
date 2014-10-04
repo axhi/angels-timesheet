@@ -1,0 +1,15 @@
+<script src="https://maps.googleapis.com/maps/api/js?libraries=geometry"></script>
+<script>Location.getLocation()</script>
+<div class="main-header" data-role="header">
+    <h1>Seven Angels Timesheet</h1>
+</div>
+<div class="ui-content main-page">
+  <h1 class='time' id=time></h1>
+  <div class="sign-in">
+    <form id="sign-in">
+      <input type="text" pattern="\d*" name="code" id="code" placeholder="enter pin">
+      <button class="ui-btn submit">Submit</button>
+    </form>
+  </div>
+  <div class='clock-buttons'></div>
+</div>
