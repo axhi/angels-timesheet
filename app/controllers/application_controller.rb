@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def format_date(date)
-    DateTime.parse(date)
+    date.strftime("%D")
     #DateTime.parse(date).strftime('%D')
   end
 
