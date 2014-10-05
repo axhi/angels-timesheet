@@ -16,6 +16,7 @@
 }
 .entry-btn {
   width: 100px !important;
+  display: inline;
 }
 
 .time {

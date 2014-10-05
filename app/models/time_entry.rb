@@ -6,7 +6,7 @@ class TimeEntry < ActiveRecord::Base
 
   def timestamp
     if clock_in.nil?
-     self.update(clock_in: Time.now, date: DateTime.now)
+     self.update(clock_in: Time.zone.now, date: DateTime.now)
     end
   end
 

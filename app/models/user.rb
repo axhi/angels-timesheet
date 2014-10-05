@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   end
 
   def clock_out
-    time_entries.open_status.each{|ent| ent.update(clock_out: Time.now)}
+    time_entries.open_status.each{|ent| ent.update(clock_out: Time.zone.now)}
   end
 
   def current_hours
@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
     hours = 0
     h.each do |entry|
       a = Time.diff(entry.clock_in, entry.clock_out)
-      hours += "#{a[:hour]}.#{a[:second]}".to_f
+      hours += "#{a[:hour]}.#{a[:minute]}".to_f
     end
     hours.to_i
   end

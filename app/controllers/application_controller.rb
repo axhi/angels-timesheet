@@ -9,22 +9,24 @@ class ApplicationController < ActionController::Base
   end
 
   def format_date(date)
-    date.strftime("%D")
+    DateTime.parse(date).strftime("%D")
   end
 
   def format_time(time)
     if time.nil?
       "still clocked in"
     else
-      DateTime.parse(time).strftime("%l:%M %P")
+      time.strftime("%l:%M %P")
     end
   end
 
   def get_hours(times)
     hours = 0
     times.each do |entry|
-      a = Time.diff(entry.clock_in, entry.clock_out)
-      hours += "#{a[:hour]}.#{a[:second]}".to_f
+      unless entry.clock_out.nil?
+        a = Time.diff(entry.clock_in, entry.clock_out)
+        hours += "#{a[:hour]}.#{a[:minute]}".to_f
+      end
     end
     @time = hours.round(2)
   end
