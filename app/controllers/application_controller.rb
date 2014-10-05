@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_tips(wage)
-    (8.0 - wage) * @time
+    ((8.0 - wage) * @time).round
   end
   
   helper_method :get_tips
