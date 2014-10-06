@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
     hours = 0
     h.each do |entry|
       a = Time.diff(entry.clock_in, entry.clock_out)
-      hours += "#{a[:hour]}.#{a[:minute]}".to_f
+      hours += "#{a[:hour]}.#{a[:minute]/60.0}".to_f
     end
     hours.to_i
   end
