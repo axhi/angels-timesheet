@@ -13,7 +13,7 @@ var Render = {
   },
   clockOut: function(id, user) {
     $('.sign-in').toggle();
-    $('.clock-buttons').append("<div class='clock'><div class='user'><h2>"+user+"</h2><h3>"+todaysDate()+"></h3></div><button class='ui-btn clock out' id='clock-out'><span class='"+id+"'>Clock-Out</span></button></div>");
+    $('.clock-buttons').append("<div class='clock'><div class='user'><h2>"+user+"</h2><h3>"+todaysDate()+"</h3></div><button class='ui-btn clock out' id='clock-out'><span class='"+id+"'>Clock-Out</span></button></div>");
   },
   signIn: function() {
     $('.clock').remove();
