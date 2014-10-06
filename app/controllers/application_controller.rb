@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     times.each do |entry|
       unless entry.clock_out.nil?
         a = Time.diff(entry.clock_in, entry.clock_out)
-        hours += "#{a[:hour]}.#{(a[:minute]/60.0)}".to_f
+        hours += a[:hour].to_i + a[:minute]/60.0 
       end
     end
     @time = hours.round(2)
