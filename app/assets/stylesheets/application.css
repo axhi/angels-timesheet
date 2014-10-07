@@ -59,7 +59,9 @@
   text-shadow: none !important;
   padding:5px;
 }
-
+.bar {
+  background: gold;
+}
 .date-entry:nth-child(even) {
   background: beige;
   border-top: 1px solid grey;
