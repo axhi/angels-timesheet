@@ -15,6 +15,21 @@
           </tr>
         </thead>
         <tbody class="t-body">
+
+          <% @data.each do |user| %>
+          <tr class="results-tr">
+            <td><%= user.first_name %> <%= user.last_name %>
+            </td>
+            <td>
+            <%= user.time_entries.count %>
+            </td>
+            <td>
+              <span class="hours"><strong><%= pluralize(get_hours(user.time_entries), 'hour') %></strong></span>
+              <br><span>Tips: <strong>$<%= get_tips(user.wage) %></strong></span>
+            </td>
+          </tr>
+          <% end %>
+          <tr style="background: gold"><td></td><td></td><td></td></tr>
           <% @data.each do |user| %>
           <tr class="results-tr">
             <td><%= user.first_name %> <%= user.last_name %>
