@@ -69,7 +69,7 @@
 }
 
 .results-tr:nth-child(odd) {
-  background:;
+  background: white;
 }
 
 .ui-page {
