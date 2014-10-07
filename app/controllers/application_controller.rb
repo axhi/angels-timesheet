@@ -17,8 +17,8 @@ class ApplicationController < ActionController::Base
     if time.nil?
       "still clocked in"
     else
-      #time.strftime("%l:%M %P")
-      DateTime.parse(time).strftime("%l:%M %P")
+      time.strftime("%l:%M %P")
+      #DateTime.parse(time).strftime("%l:%M %P")
     end
   end
 
@@ -26,6 +26,7 @@ class ApplicationController < ActionController::Base
     hours = 0
     times.each do |entry|
       unless entry.clock_out.nil?
+        p entry.clock_in
         a = Time.diff(entry.clock_in, entry.clock_out)
         hours += a[:hour].to_i + a[:minute]/60.0 
       end
