@@ -11,15 +11,14 @@ class TimeEntriesController < ApplicationController
 
   def edit
     t = TimeEntry.find(params[:id])
-    puts params[:date]
-    t.update(clock_in: Time.parse(params[:clock_in]), clock_out: Time.parse(params[:clock_out]), date: DateTime.parse(params[:date]))
+    t.update(clock_in: Time.parse(params[:clock_in]), clock_out: Time.parse(params[:clock_out]), date: params[:date])
     render json: {success: true, entry: t}
   end
 
   def create
     user = User.find(params[:user])
     t = user.time_entries.create()
-    t.update(date: DateTime.parse(params[:date]), clock_in: Time.parse(params[:clock_in]), clock_out: Time.parse(params[:clock_out]))
+    t.update(date: params[:date], clock_in: Time.parse(params[:clock_in]), clock_out: Time.parse(params[:clock_out]))
     render json: {success: true, entry: t}      
   end
 
