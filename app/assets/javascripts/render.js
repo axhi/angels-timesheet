@@ -40,11 +40,15 @@ var Render = {
     $('#time-add').popup('open');
   },
   deleteItem: function(id) {
-    $("#"+id).remove();
+    $("#shift-"+id).remove();
     $('#time-edit').popup('close');
   },
   updateTime: function(id) {
     $('#time-edit').popup('close');
+    var inTime = new Date(id.clock_in).toLocaleTimeString();
+    var outTime = new Date(id.clock_out).toLocaleTimeString() 
+    $("#shift-"+id.id).find("span").first().html("Punched In: "+ inTime);
+    $($("#shift-"+id.id).find("span")[1]).html("Punched Out: "+ outTime);
   },
   newTime: function(time) {
     $('#time-add').popup('close');

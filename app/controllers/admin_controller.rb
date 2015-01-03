@@ -14,8 +14,13 @@ class AdminController < ApplicationController
   end
 
   def report
-    @data = User.where('position != 0 OR position IS NULL').eager_load(:time_entries).where("time_entries.date >= ? AND time_entries.date <= ?", Time.parse(params[:from]), Time.parse(params[:to]).tomorrow).order("time_entries.date DESC")
-    render "admin/report"
+    if params[:user] == ""
+      @data = User.where('position != 0 OR position IS NULL').eager_load(:time_entries).where("time_entries.date >= ? AND time_entries.date <= ?", Time.parse(params[:from]), Time.parse(params[:to]).tomorrow).order("time_entries.date DESC")
+      render "admin/report"
+    else
+      @data = User.where(id: params[:user]).eager_load(:time_entries).where("time_entries.date >= ? AND time_entries.date <= ?", Time.parse(params[:from]), Time.parse(params[:to]).tomorrow).order("time_entries.date DESC")
+      render "admin/report"
+    end
   end
 
   def panel

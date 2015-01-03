@@ -52,6 +52,13 @@
         <input type="date" name="from" data-role="date" id="from" data-inline="true">
         <label>To:</label>
         <input type="date" name="to" data-role="date" id="to" data-inline="true">
+        <label>For:</label>
+        <select name='user'>
+            <option value="" selected>All Employees</option>
+          <% @users.each do |user| %>
+            <option value=<%=user.id%>><%= user.first_name %> <%= user.last_name %></option>
+          <% end %>
+        </select>
         <button type="submit">Generate</button>
       </div>
     </form>

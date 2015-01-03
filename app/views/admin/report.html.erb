@@ -36,7 +36,7 @@
             </td>
             <td>
             <% user.time_entries.each do |shift| %>
-              <div id=<%=shift.id%> class="date-entry">
+              <div id="shift-<%=shift.id%>" class="date-entry">
                 <strong><%= format_date(shift.date) %></strong><br>
                 <span> Punched In: <%= format_time(shift.clock_in) %></span> <span> Punched Out: <%= format_time(shift.clock_out) %></span> <br>
               <button class='entry-btn' id=<%=shift.id%>>edit</button>
