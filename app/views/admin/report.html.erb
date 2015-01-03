@@ -21,7 +21,7 @@
             <td><%= user.first_name %> <%= user.last_name %>
             </td>
             <td>
-            <%= user.time_entries.count %>
+            <%= user.time_entries.length %>
             </td>
             <td>
               <span class="hours"><strong><%= pluralize(get_hours(user.time_entries), 'hour') %></strong></span>
