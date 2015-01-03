@@ -11,6 +11,7 @@ class TimeEntriesController < ApplicationController
 
   def edit
     t = TimeEntry.find(params[:id])
+    puts Time.parse(params[:clock_in])
     t.update(clock_in: Time.parse(params[:clock_in]), clock_out: Time.parse(params[:clock_out]), date: params[:date])
     render json: {success: true, entry: t}
   end
