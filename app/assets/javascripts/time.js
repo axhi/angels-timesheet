@@ -16,7 +16,7 @@ var Time = {
   },
   getTime: function(time) {
     var a = new Date(time);
-    return (checkTime(a.getHours()) + ":" + a.getMinutes() + ":" + checkTime(a.getSeconds()));
+    return (checkTime(a.getHours()) + ":" + checkTime(a.getMinutes()) + ":" + checkTime(a.getSeconds()));
   },
   delete: function(id) {
     var request = $.ajax({
