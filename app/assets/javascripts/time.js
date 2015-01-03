@@ -16,7 +16,7 @@ var Time = {
   },
   getTime: function(time) {
     var a = new Date(time);
-    return (a.getHours() + ":" + checkDay(a.getMinutes()) + ":" + checkDay(a.getSeconds()));
+    return (checkHours(a.getHours()) + ":" + a.getMinutes() + ":" + a.getSeconds());
   },
   delete: function(id) {
     var request = $.ajax({
@@ -66,5 +66,13 @@ function checkDay(date) {
     return "0" + date;
   } else {
    return date;
+  }
+}
+
+function checkHours(time) {
+  if(time < 10) {
+    return "0" + time;
+  } else {
+    return time;
   }
 }
